@@ -1,0 +1,362 @@
+:root {
+    --cor1: #00ffff;
+    --cor2: #575A4B;
+    --cor3: #F4D58D;
+    --cor4: #001427;
+    --cor5: #cf008ad8;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=devanagari,latin-ext');
+
+html{
+    height: 100%;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+svg {
+    background-color: var(--cor4);
+    border-radius: 50%;
+    transition: all 0.8s;
+
+}
+
+svg:hover {
+    background-color: var(--cor2);
+    transform: scale(1.2);
+    rotate: 360deg;
+}
+
+.funcao a {
+    color: var(--cor2);
+    text-decoration: none;
+}
+
+.funcao a:hover {
+    color: var(--cor3);
+}
+
+/* Base styles for the navigation */
+nav {
+    background-color: var(--cor4);
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.menu-toggle {
+    display: flex;
+    flex-direction: column;
+}
+
+#menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+nav a {
+    display: block;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: var(--cor4);
+    background-color: var(--cor3);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    text-align: center;
+    white-space: nowrap;
+}
+
+nav a:hover {
+    background-color: var(--cor2);
+    color: var(--cor3);
+}
+
+/* Hamburger Icon Styles */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    padding: 10px;
+    align-self: flex-end;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px 0;
+    background-color: #333;
+    transition: all 0.3s ease;
+}
+
+#hamburger-toggle {
+    display: none;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .hamburger span {
+        background-color: var(--cor3); /* Substitua pela cor que deseja */
+        display: block;
+        height: 3px; /* Altura das linhas do hamburguer */
+        margin: 5px 0; /* Espaçamento entre as linhas */
+        transition: all 0.3s ease; /* Adiciona transição suave */
+      }
+    
+    nav {
+        background-color: transparent;
+    }
+
+    label {
+        background-color: var(--cor4);
+        border-radius: 50%;
+        transition: all .5s;
+
+        &:hover{
+            background-color: var(--cor3);
+            transform: rotate(90deg);
+
+            span {
+                background-color: var(--cor4);
+            }
+        }
+    }
+
+    .hamburger {
+        display: block;
+    }
+    
+    #menu {
+        display: none;
+        flex-direction: column;
+        gap: 0.3rem;
+        width: 100%;
+        margin-top: 10px;
+    }
+    
+    #menu li {
+        width: 100%;
+    }
+    
+    nav a {
+        padding: 0.8rem;
+        font-size: 1rem;
+        text-align: left;
+    }
+    
+    #hamburger-toggle:checked ~ #menu {
+        display: flex;
+    }
+    
+    #hamburger-toggle:checked ~ .hamburger span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    #hamburger-toggle:checked ~ .hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    #hamburger-toggle:checked ~ .hamburger span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+}
+
+/* Desktop styles */
+@media (min-width: 769px) {
+    nav {
+        padding: 1rem 2rem;
+    }
+    
+    #menu {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    nav a {
+        min-width: max-content;
+    }
+}
+
+.funcao {
+    color: var(--cor1);
+}
+
+body {
+    background: url(../imagens/fundo/cidade.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed; /* Isso cria o efeito parallax */
+    color: var(--cor3);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    min-height: 100vh;
+}
+
+section h2 {
+    padding: 10px;
+    margin: 0px;
+    color: var(--cor1);
+    background:linear-gradient(90deg, #ff05ac87 0%, #ff05aca3 25%, #00ffff85 50%, #00ffff00 100%);
+    border-radius: 10px 10px 0px 0px;
+}
+
+.tools-section {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 0;
+    margin-bottom: 30px;
+}
+
+.tools-section img {
+    width: 50px;
+    height: 50px;
+    transition: transform 0.3s;
+}
+
+.tools-section img:hover {
+    transform: scale(1.2);
+}
+
+.card-section {
+    margin-bottom: 40px;
+}
+
+.section-title {
+    font-size: 24px;
+    margin-bottom: 0px;
+    padding-left: 20px;
+}
+
+.cards-container {
+    display: flex;
+    overflow-x: auto;  /* Habilita scroll horizontal */
+    overflow-y: hidden; /* Esconde scroll vertical */
+    gap: 20px;
+    padding: 20px;
+    scrollbar-width: auto;  /* Para Firefox */
+    scrollbar-color: var(--cor3) rgba(0,0,0,0.2); /* Para Firefox */
+    
+    /* Estilização da barra de scroll para Chrome/Safari */
+    &::-webkit-scrollbar {
+        height: 6px;
+    }
+    
+    &::-webkit-scrollbar-track {
+        background: rgba(0,0,0,0.1);
+        border-radius: 3px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--cor3);
+        border-radius: 3px;
+    }
+}
+
+.cards-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.single-card {
+    position: relative;
+    min-width: 300px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    transition: all 0.5s;
+    background: #010615;
+    flex-shrink: 0;
+    
+    &:hover {
+        height: 400px;
+        
+        .content {
+            opacity: 1;
+        }
+        
+        .card-img img {
+            opacity: 1;
+        }
+    }
+    
+    &::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: white;
+        z-index: -1;
+        background: linear-gradient(45deg, #ff05ac 0%, #ff05ac 18%, #00ffff 100%);
+    }
+    
+    &::after {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: white;
+        z-index: -2;
+        filter: blur(40px);
+        background: linear-gradient(45deg, rgba(255,5,172,1) 0%, rgba(255,5,172,1) 18%, rgba(0,255,255,1) 100%);
+    }
+
+    .card-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        
+        img {
+            max-width: 100%;
+            opacity: 0.1;
+            transition: 0.5s;
+            height: 280px;
+            object-fit: cover;
+        }
+    }
+
+    .content {
+        position: absolute;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        opacity: 0;
+        transition: 0.5s;
+        height: 90px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        .title {
+            font-size: 28px;
+            line-height: 10px;
+        }
+        
+        p {
+            text-align: center;
+            margin-top: 10px;
+        }
+    }
+}
