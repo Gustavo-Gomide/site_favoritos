@@ -17,14 +17,14 @@ html{
     margin: 0;
 }
 
-svg {
+svg.redes_sociais {
     background-color: var(--cor4);
     border-radius: 50%;
     transition: all 0.8s;
 
 }
 
-svg:hover {
+svg.redes_sociais:hover {
     background-color: var(--cor2);
     transform: scale(1.2);
     rotate: 360deg;
@@ -47,6 +47,10 @@ nav {
     position: sticky;
     top: 0;
     z-index: 1000;
+    overflow-x: auto; /* Permite rolagem horizontal */
+    -webkit-overflow-scrolling: touch; /* Rolagem suave em dispositivos iOS */
+    scrollbar-width: thin; /* Para navegadores Firefox */
+    scrollbar-color: var(--cor3) var(--cor4); /* Firefox */
 }
 
 .menu-toggle {
@@ -59,7 +63,8 @@ nav {
     margin: 0;
     padding: 0;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    min-width: min-content;
     justify-content: center;
     gap: 0.5rem;
 }
@@ -105,6 +110,38 @@ nav a:hover {
 
 /* Mobile styles */
 @media (max-width: 768px) {
+    nav {
+        background-color: transparent;
+        overflow-x: hidden; /* Remove rolagem horizontal */
+        overflow-y: hidden;    /* Adiciona rolagem vertical */
+        padding: 0.5rem;
+    }
+
+    nav::-webkit-scrollbar {
+        height: auto;     /* Altura automática (vertical) */
+        width: 8px;       /* Largura da barra vertical */
+    }
+
+    nav::-webkit-scrollbar-track {
+        background: var(--cor4); /* Cor do fundo da barra */
+    }
+
+    nav::-webkit-scrollbar-thumb {
+        background-color: var(--cor2); /* Cor do "ponteiro" da barra */
+        border-radius: 4px;
+    }
+
+    .hamburger {
+        position: sticky;
+        top: 10px; /* Ajuste conforme necessário */
+        z-index: 1001; /* Garante que fique acima do menu */
+        background-color: var(--cor4);
+        border-radius: 50%;
+        padding: 10px;
+        margin-left: auto; /* Alinha à direita */
+        display: block;
+    }
+
     .hamburger span {
         background-color: var(--cor3); /* Substitua pela cor que deseja */
         display: block;
@@ -112,9 +149,9 @@ nav a:hover {
         margin: 5px 0; /* Espaçamento entre as linhas */
         transition: all 0.3s ease; /* Adiciona transição suave */
       }
-    
-    nav {
-        background-color: transparent;
+
+    #hamburger-toggle:not(:checked) ~ #menu {
+        display: none;
     }
 
     label {
@@ -123,25 +160,20 @@ nav a:hover {
         transition: all .5s;
 
         &:hover{
-            background-color: var(--cor3);
-            transform: rotate(90deg);
-
-            span {
-                background-color: var(--cor4);
-            }
+            background-color: var(--cor2);
+            transform: rotate(90deg);            
         }
     }
 
-    .hamburger {
-        display: block;
-    }
-    
     #menu {
         display: none;
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
         gap: 0.3rem;
         width: 100%;
         margin-top: 10px;
+        max-height: 0;
+        -webkit-overflow-scrolling: touch;
     }
     
     #menu li {
@@ -156,6 +188,9 @@ nav a:hover {
     
     #hamburger-toggle:checked ~ #menu {
         display: flex;
+        overflow-y: auto;
+        overflow-x: hidden;
+        max-height: 30vh;
     }
     
     #hamburger-toggle:checked ~ .hamburger span:nth-child(1) {
