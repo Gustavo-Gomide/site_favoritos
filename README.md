@@ -1,10 +1,14 @@
+[![Site Oficial](https://img.shields.io/badge/🌐_Site-Dragon's_House-8A2BE2)](https://gustavo-gomide.github.io/site_favoritos/)
 # 🐉 DRAGON'S HOUSE - O Tesouro do Desenvolvedor  
 
 *Seu cofre de ferramentas essenciais para desenvolvimento criativo*  
 
 ---
+## 🌐 Acesse o Site
+🖱️ **[Visite a Dragon's House Online](https://gustavo-gomide.github.io/site_favoritos/)**  
+*(Coleção completa de recursos em formato web responsivo)*
 
-## 🌟 Conteúdos 
+## 🌟 Conteúdos
 
 ### 🤖 **Inteligências Artificiais**  
 - **CHATGPT** → IA generativa multifuncional  
